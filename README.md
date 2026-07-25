@@ -72,7 +72,7 @@ independent of what `head` and `tail` happen to equal.
 ## Hardware setup
 
 - Arduino Mega 2560
-- UART1 (pins 18/TX1, 19/RX1) used for the buffered channel — UART0 is
+- UART1 (pins 18/TX1, 19/RX1) used for the buffered channel, UART0 is
   reserved for the USB connection used to upload code and run the
   Serial Monitor, so it can't double as the test channel.
 - A jumper wire connects pin 18 (TX1) directly to pin 19 (RX1), creating
