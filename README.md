@@ -28,9 +28,25 @@ corrupting data or crashing silently.
 
 ## The head == tail ambiguity
 
+A ring buffer tracks two indexes in a fixed-size array:
+
+- `tail` — the next empty slot to **write** to (advanced on push)
+- `head` — the oldest unread item, the next slot to **read** from
+  (advanced on pop)
+
+The natural way to check if the buffer is empty is `head == tail`. But
+that condition is also true when the buffer is completely full:
+after enough pushes, `tail` wraps all the way around the array and
+lands back on the exact same index as `head`. Both states produce the same `head == tail` comparison: an empty
+buffer with nothing written yet, and a full buffer where every slot
+has been written and is still unread. The two indexes alone can't tell them apart,
+because wrapping with modulo throws away how many full laps `tail` has
+completed relative to `head`.
+
 This project resolves the ambiguity with a `counter_` member: incremented
 on every push, decremented on every pop. `counter_ == 0` unambiguously
-means empty, `counter_ == Capacity` unambiguously means full.
+means empty; `counter_ == Capacity` unambiguously means full,
+independent of what `head` and `tail` happen to equal.
 
 ## Design notes
 
