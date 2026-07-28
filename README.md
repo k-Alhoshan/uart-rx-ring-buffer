@@ -4,6 +4,11 @@ Fixed-capacity ring buffer with template used to capture UART bytes
 inside an ISR, decoupling asynchronous hardware interrupts from the main
 program loop. Built and tested on an Arduino Mega 2560 using PlatformIO.
 
+![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
+![PlatformIO](https://img.shields.io/badge/PlatformIO-Compatible-orange.svg)
+![Framework](https://img.shields.io/badge/framework-Arduino-00979D.svg)
+![Board](https://img.shields.io/badge/Board-Arduino%20Mega%202560-00979D.svg)
+
 ## Purpose
 
 UART hardware receives data asynchronously, completely independent of what the main loop is doing. The
