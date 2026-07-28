@@ -149,3 +149,7 @@ Received: 88
 - Add a second ring buffer plus the `UDRE1` interrupt for fully
   non-blocking transmission, instead of the current polling wait in
   `loop()`.
+
+## License
+
+Released under the [MIT License](LICENSE).
